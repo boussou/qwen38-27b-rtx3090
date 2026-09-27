@@ -57,6 +57,11 @@
 # reaper sees only its own container's processes (#33) and would delete the
 # other engine's live offload region.
 
+# Three GPUs (3x RTX 3090) todo:
+# replace  "count: ${GPU_COUNT:-1}" in section deploy/resources/reservations/devices below
+# by this: "device_ids: ['0', '1']"
+# (the two cards "single"/"batch" serve on)
+
 x-qwen: &qwen
   # Prebuilt on every main push by .github/workflows/docker-image.yml; the
   # first `up` pulls it (~9.5 GB, pull_policy below) instead of the 20-minute
